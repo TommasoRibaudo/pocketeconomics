@@ -1,8 +1,19 @@
 <body>
-    <p id="hello"></p>
-    <script>
-        fetch('http://127.0.0.1:5000/')
-            .then(data => console.log(data.text))
-            .catch(err => console.error(err));
-    </script>
+    <p id="hello">fff</p>
+    <label for="fname">Chi diceva libertà è partecipazione</label>
+    <input type="text" id="inputLiberta" name="inputLiberta"><br><br>
+    <button onclick="handleOnClick();">Sei sicuro?</button>
+        <script>
+            function liberta(userInput) {
+                let url = 'http://127.0.0.1:5000/';
+                let che = userInput;
+                fetch(url + che)
+                    .then(response => response.json())
+                    .then(data => document.getElementById("hello").innerHTML = data)
+                    .catch(err => console.error(err));
+            }
+            function handleOnClick() {
+                liberta(document.getElementById("inputLiberta").value);
+            }
+        </script>
 </body>
