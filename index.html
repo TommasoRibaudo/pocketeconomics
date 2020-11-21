@@ -1,3 +1,8 @@
 <body>
-    <p>ciao lollo</p>
+    <p id="hello"></p>
+    <script>
+        fetch('http://127.0.0.1:5000/')
+            .then(data => console.log(data.text))
+            .catch(err => console.error(err));
+    </script>
 </body>
